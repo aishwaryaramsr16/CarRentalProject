@@ -1,37 +1,190 @@
-## Welcome to GitHub Pages
+<?php 
 
-You can use the [editor on GitHub](https://github.com/aishwaryaramsr16/CarRentalProject/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+    $active='Home';
+    include("includes/header.php");
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+?>
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/aishwaryaramsr16/CarRentalProject/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+   <div class="container" id="slider"><!-- container Begin -->
+       
+       <div class="col-md-12"><!-- col-md-12 Begin -->
+           
+           <div class="carousel slide" id="myCarousel" data-ride="carousel"><!-- carousel slide Begin -->
+               
+               <ol class="carousel-indicators"><!-- carousel-indicators Begin -->
+                   
+                   <li class="active" data-target="#myCarousel" data-slide-to="0"></li>
+                   <li data-target="#myCarousel" data-slide-to="1"></li>
+                   <li data-target="#myCarousel" data-slide-to="2"></li>
+                   <li data-target="#myCarousel" data-slide-to="3"></li>
+                   
+               </ol><!-- carousel-indicators Finish -->
+               
+               <div class="carousel-inner"><!-- carousel-inner Begin -->
+                  
+                  <?php 
+                   
+                   $get_slides = "select * from slider LIMIT 0,1";
+                   
+                   $run_slides = mysqli_query($con,$get_slides);
+                   
+                   while($row_slides=mysqli_fetch_array($run_slides)){
+                       
+                       $slide_name = $row_slides['slide_name'];
+                       $slide_image = $row_slides['slide_image'];
+                       
+                       echo "
+                       
+                       <div class='item active'>
+                       
+                       <img src='admin_area/slides_images/$slide_image'>
+                       
+                       </div>
+                       
+                       ";
+                       
+                   }
+                   
+                   $get_slides = "select * from slider LIMIT 1,3";
+                   
+                   $run_slides = mysqli_query($con,$get_slides);
+                   
+                   while($row_slides=mysqli_fetch_array($run_slides)){
+                       
+                       $slide_name = $row_slides['slide_name'];
+                       $slide_image = $row_slides['slide_image'];
+                       
+                       echo "
+                       
+                       <div class='item'>
+                       
+                       <img src='admin_area/slides_images/$slide_image'>
+                       
+                       </div>
+                       
+                       ";
+                       
+                   }
+                   
+                   ?>
+                   
+               </div><!-- carousel-inner Finish -->
+               
+               <a href="#myCarousel" class="left carousel-control" data-slide="prev"><!-- left carousel-control Begin -->
+                   
+                   <span class="glyphicon glyphicon-chevron-left"></span>
+                   <span class="sr-only">Previous</span>
+                   
+               </a><!-- left carousel-control Finish -->
+               
+               <a href="#myCarousel" class="right carousel-control" data-slide="next"><!-- left carousel-control Begin -->
+                   
+                   <span class="glyphicon glyphicon-chevron-right"></span>
+                   <span class="sr-only">Next</span>
+                   
+               </a><!-- left carousel-control Finish -->
+               
+           </div><!-- carousel slide Finish -->
+           
+       </div><!-- col-md-12 Finish -->
+       
+   </div><!-- container Finish -->
+   
+   <div id="advantages"><!-- #advantages Begin -->
+       
+       <div class="container"><!-- container Begin -->
+           
+           <div class="same-height-row"><!-- same-height-row Begin -->
+               
+               <div class="col-sm-4"><!-- col-sm-4 Begin -->
+                   
+                   <div class="box same-height"><!-- box same-height Begin -->
+                       
+                  
+                       
+                       <h3><a href="#">By Pass Counter</a></h3>
+                       
+                       <p>Payless Rentals provides free By-Pass Counters for its Registered Customers.  </p>
+                       
+                       
+                   </div><!-- box same-height Finish -->
+                   
+               </div><!-- col-sm-4 Finish -->
+               
+               <div class="col-sm-4"><!-- col-sm-4 Begin -->
+                   
+                   <div class="box same-height"><!-- box same-height Begin -->
+                       
+                      
+                       <h3><a href="#">Best Prices</a></h3>
+                       
+                       <p>A Challenging Price variation amongst our Competitors.</p>
+                       
+                   </div><!-- box same-height Finish -->
+                   
+               </div><!-- col-sm-4 Finish -->
+               
+               <div class="col-sm-4"><!-- col-sm-4 Begin -->
+                   
+                   <div class="box same-height"><!-- box same-height Begin -->
+                       
+                       
+                       <h3><a href="#">20% Off</a></h3>
+                       
+                       <p>Get away this week end and save $20 off the base rate of a week end rental. Hurry!!</p>
+                       
+                   </div><!-- box same-height Finish -->
+                   
+               </div><!-- col-sm-4 Finish -->
+               
+           </div><!-- same-height-row Finish -->
+           
+   </div><!-- container Finish -->
+       
+   </div><!-- #advantages Finish -->
+   
+   <div id="hot"><!-- #hot Begin -->
+       
+       <div class="box"><!-- box Begin -->
+           
+           <div class="container"><!-- container Begin -->
+               
+               <div class="col-md-12"><!-- col-md-12 Begin -->
+                   
+                   <h2>
+                       Our Latest Vehicles
+                   </h2>
+                   
+               </div><!-- col-md-12 Finish -->
+               
+           </div><!-- container Finish -->
+           
+       </div><!-- box Finish -->
+       
+   </div><!-- #hot Finish -->
+   
+   <div id="content" class="container"><!-- container Begin -->
+       
+       <div class="row">
+       
+       <?php 
+           
+           getPro();
+           
+           ?>
+       </div>
+       
+   </div><!-- container Finish -->
+   
+    <?php 
+    
+    include("includes/footer.php");
+    
+    ?>
+    
+    <script src="js/jquery-331.min.js"></script>
+    <script src="js/bootstrap-337.min.js"></script>
+    
+      </body>
+  
+</html>
